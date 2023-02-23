@@ -1,0 +1,50 @@
+@import "../../global.scss";
+
+.title-bar {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(75deg, rgb(214, 180, 247), rgb(173, 203, 231));
+
+  // horizontally and vertically center text
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: $dark;
+  }
+}
+
+.grand-total {
+  display: flex;
+  height: 250px;
+  background: $dark;
+
+  // horizontally and vertically center text
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-weight: 300;
+    font-size: 58px;
+    color: #fff;
+
+    &.green {
+      color: green;
+    }
+
+    &.red {
+      color: red;
+    }
+  }
+}
+
+.new-item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

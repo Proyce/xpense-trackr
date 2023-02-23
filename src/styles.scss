@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'global.scss';
+@import '../node_modules/bulma/bulma.sass';
+
+.flex {
+  justify-content: center;
+  align-items: center;
+}

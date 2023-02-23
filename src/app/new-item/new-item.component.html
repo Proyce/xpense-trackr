@@ -1,0 +1,36 @@
+<form #xpenseForm="ngForm" (ngSubmit)="addXpense(xpenseForm)">
+  <div class="field is-horizontal">
+    <div class="field-body flex">
+      <div class="field is-narrow">
+        <p class="control">
+          <input
+            type="number"
+            class="input"
+            style="width: 100px"
+            name="amount"
+            placeholder="Amount"
+            required
+            ngModel
+          />
+        </p>
+      </div>
+
+      <div class="field is-narrow">
+        <p class="control">
+          <input
+            type="text"
+            class="input"
+            placeholder="Item/Description"
+            name="description"
+            ngModel
+            required
+          />
+        </p>
+      </div>
+
+      <div class="field">
+        <button type="submit" class="button is-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</form>

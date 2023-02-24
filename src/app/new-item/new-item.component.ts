@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { xpenseItem } from 'src/shared/models/item-model';
+import { XpenseService } from 'src/shared/services/xpense.service';
 
 @Component({
   selector: 'app-new-item',
@@ -8,22 +9,12 @@ import { xpenseItem } from 'src/shared/models/item-model';
   styleUrls: ['./new-item.component.scss'],
 })
 export class NewItemComponent {
+  constructor(private xPenseSrv: XpenseService){
+
+  }
   addXpense(xpenseForm: NgForm) {
-    // this.item = xpenseForm.value;
-    // console.log(xpenseForm.value);
-
-    let { amount, description } = xpenseForm.value;
-    // console.log(amount, description);
-
-    // this.item.amount = amount;
-    // this.item.description = description;
-
-    const xpenseItem: xpenseItem = {
-      id: Math.random().toString(16).slice(2),
-      description,
-      amount,
-    };
-    console.log(xpenseItem);
+    const { amount, description } = xpenseForm.value;
+    this.xPenseSrv.addXpense(amount, description)
     xpenseForm.reset();
   }
 }

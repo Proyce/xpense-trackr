@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NewItemComponent } from './new-item/new-item.component';
 import { ItemsListComponent } from './items-list/items-list.component';
-import { ItemCardComponent } from './items-list/item-card/item-card.component';
 import { FormsModule } from '@angular/forms';
 import { XpenseService } from 'src/shared/services/xpense.service';
 
@@ -16,7 +15,6 @@ import { XpenseService } from 'src/shared/services/xpense.service';
     HomeComponent,
     NewItemComponent,
     ItemsListComponent,
-    ItemCardComponent
   ],
   imports: [
     BrowserModule,

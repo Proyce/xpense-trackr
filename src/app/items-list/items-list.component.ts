@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {map, tap} from 'rxjs/operators'
 import { xpenseItem } from 'src/shared/models/item-model';
@@ -10,7 +10,7 @@ import { XpenseService } from 'src/shared/services/xpense.service';
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent implements OnInit{
-
+  @Output() editedXpense: EventEmitter<xpenseItem> = new EventEmitter<xpenseItem>();
 
   constructor(private xpenseSrv: XpenseService){
 
@@ -30,7 +30,14 @@ export class ItemsListComponent implements OnInit{
     )
 
     this.allItems$ = this.xpenseSrv.xpenseList$;
+  }
 
-    console.log(this.xpenses$, this.income$, this.allItems$);
+  editItem(item: xpenseItem){
+    this.editedXpense.emit(item)
+    this.xpenseSrv.setSelectedItem(item)
+  }
+
+  deleteItem(index: number): void{
+    this.xpenseSrv.deleteExpense(index)
   }
 }

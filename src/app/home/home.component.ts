@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { xpenseItem } from 'src/shared/models/item-model';
 import { XpenseService } from 'src/shared/services/xpense.service';
 
 
@@ -8,11 +9,14 @@ import { XpenseService } from 'src/shared/services/xpense.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit{
+  editedIndex!: number;
   constructor(public xpenseSrv: XpenseService){}
 
-  testObs: any = this.xpenseSrv.xpenseList$.getValue()
-
   ngOnInit(): void {
-    console.log(this.testObs);
+  }
+
+  editedItem(xpense: xpenseItem){
+    console.log(xpense, 'edit clicked');
+    // this.editedIndex = index;
   }
 }

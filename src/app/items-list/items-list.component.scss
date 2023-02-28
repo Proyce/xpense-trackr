@@ -60,6 +60,32 @@
       opacity: 1;
       transform: scale(1);
     }
+    .edit-btn {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .edit-btn {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background: $dark;
+    background-image: url('../../assets/edit_icon.svg');
+    background-size: contain;
+    background-position: center;
+    right: 0;
+    right: -17px;
+    top: -17px;
+    border-radius: 50%;
+
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    transform: scale(0);
+
+    &:hover {
+      transform: scales(1.25);
+    }
   }
 
   .delete-btn {
@@ -73,7 +99,7 @@
     background-position: center;
     right: 0;
     right: -17px;
-    top: -17px;
+    bottom: -17px;
     border-radius: 50%;
 
     transition: opacity 0.2s ease-in, transform 0.2s ease-in;

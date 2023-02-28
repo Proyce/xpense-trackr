@@ -8,10 +8,10 @@
 
 <div class="new-item">
   <div class="new-item-container">
-    <app-new-item style="padding: 20px;"></app-new-item>
+    <app-new-item [editedIndex]="editedIndex" style="padding: 20px;"></app-new-item>
   </div>
 </div>
 
 <hr style="margin-top: 0;">
 
-<app-items-list></app-items-list>
+<app-items-list (editedXpense)="editedItem($event)"></app-items-list>

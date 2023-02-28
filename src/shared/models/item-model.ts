@@ -1,5 +1,5 @@
 export class xpenseItem {
   id!: string;
-  description!: string | null;
+  description!: string;
   amount!: number | null;
 }

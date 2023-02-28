@@ -3,7 +3,7 @@
     <div *ngIf="allItems$ | async as allItems" class="income-column">
       <h1>Income</h1>
       <div class="card-item">
-        <div *ngFor="let xpense of allItems">
+        <div *ngFor="let xpense of allItems; let i = index">
           <div
             *ngIf="xpense.amount != null && xpense.amount > 0"
             class="item-card-container"
@@ -23,7 +23,8 @@
                 <p>{{ xpense.amount }}</p>
               </div>
             </div>
-            <div class="delete-btn"></div>
+            <div class="edit-btn" (click)="editItem(xpense)"></div>
+            <div class="delete-btn" (click)="deleteItem(i)"></div>
           </div>
         </div>
       </div>
@@ -32,7 +33,7 @@
     <div *ngIf="allItems$ | async as allItems" class="expense-column">
       <h1>Expenses</h1>
       <div class="card-item">
-        <div *ngFor="let xpense of allItems">
+        <div *ngFor="let xpense of allItems; let i = index">
           <div
             *ngIf="xpense.amount != null && xpense.amount < 0"
             class="item-card-container"
@@ -52,7 +53,8 @@
                 <p>{{ xpense.amount }}</p>
               </div>
             </div>
-            <div class="delete-btn"></div>
+            <div class="edit-btn" (click)="editItem(xpense)"></div>
+            <div class="delete-btn" (click)="deleteItem(i)"></div>
           </div>
         </div>
       </div>

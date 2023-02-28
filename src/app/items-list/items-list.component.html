@@ -1,48 +1,65 @@
 <div class="xpense-tem">
   <div class="items-container">
-
-    <div *ngIf="(allItems$ | async) as allItems" class="income-column">
+    <div *ngIf="allItems$ | async as allItems" class="income-column">
       <h1>Income</h1>
       <div class="card-item">
         <div *ngFor="let xpense of allItems">
-          <div *ngIf="xpense.amount != null && xpense.amount > 0" class="item-card-container" style="margin-bottom: 20px;">
-            <div class="item-card" [ngClass]="{income: xpense.amount != null && xpense.amount >= 0, expense: xpense.amount != null && xpense.amount < 0}">
+          <div
+            *ngIf="xpense.amount != null && xpense.amount > 0"
+            class="item-card-container"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="item-card"
+              [ngClass]="{
+                income: xpense.amount != null && xpense.amount >= 0,
+                expense: xpense.amount != null && xpense.amount < 0
+              }"
+            >
               <div class="description">
-                <p>{{xpense.description}}</p>
+                <p>{{ xpense.description }}</p>
               </div>
               <div class="amount">
-                <p>{{xpense.amount}}</p>
+                <p>{{ xpense.amount }}</p>
               </div>
             </div>
-            <div class="delete-btn">
-            </div>
+            <div class="delete-btn"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="(allItems$ | async) as allItems" class="expense-column">
+    <div *ngIf="allItems$ | async as allItems" class="expense-column">
       <h1>Expenses</h1>
       <div class="card-item">
         <div *ngFor="let xpense of allItems">
-          <div *ngIf="xpense.amount != null && xpense.amount < 0" class="item-card-container" style="margin-bottom: 20px;">
-            <div class="item-card" [ngClass]="{income: xpense.amount != null && xpense.amount >= 0, expense: xpense.amount != null && xpense.amount < 0}">
+          <div
+            *ngIf="xpense.amount != null && xpense.amount < 0"
+            class="item-card-container"
+            style="margin-bottom: 20px"
+          >
+            <div
+              class="item-card"
+              [ngClass]="{
+                income: xpense.amount != null && xpense.amount >= 0,
+                expense: xpense.amount != null && xpense.amount < 0
+              }"
+            >
               <div class="description">
-                <p>{{xpense.description}}</p>
+                <p>{{ xpense.description }}</p>
               </div>
               <div class="amount">
-                <p>{{xpense.amount}}</p>
+                <p>{{ xpense.amount }}</p>
               </div>
             </div>
-            <div class="delete-btn">
-            </div>
+            <div class="delete-btn"></div>
           </div>
         </div>
       </div>
-  </div>
+    </div>
 
-      <!-- All alternative that still works -->
-      <!-- <div class="income-column">
+    <!-- An alternative that still works -->
+    <!-- <div class="income-column">
       <h1>Income</h1>
       <div class="card-item">
         <div *ngFor="let xpense of income$ | async">
@@ -85,6 +102,5 @@
         </div>
       </div>
     </div> -->
-
   </div>
 </div>

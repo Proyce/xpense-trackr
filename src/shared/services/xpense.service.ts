@@ -23,14 +23,15 @@ export class XpenseService {
   xpenseList$: BehaviorSubject<xpenseItem[]>  = new BehaviorSubject<xpenseItem[]>(this.initialXpenses);
 
   addXpense(amount:number, description:string) {
-    const xpenseItem: xpenseItem = {
+    const newItem: xpenseItem = {
       id: Math.random().toString(16).slice(2),
       description,
       amount,
     };
-    console.log(xpenseItem);
-    const updatedExpense = this.xpenseList$.getValue();
-    updatedExpense.push(xpenseItem)
+    console.log(newItem);
+    // const updatedExpense = this.xpenseList$.getValue();
+    // updatedExpense.push(newItem)
+    const updatedExpense = [...this.xpenseList$.getValue(), newItem];
     this.xpenseList$.next(updatedExpense)
   }
 

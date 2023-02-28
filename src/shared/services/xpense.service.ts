@@ -38,7 +38,7 @@ export class XpenseService {
   deleteExpense(index:number){
     const updatedXpense = this.xpenseList$.getValue().splice(index,1);
     this.xpenseList$.next(updatedXpense)
-    console.log();
+    // console.log();
   }
 
 }

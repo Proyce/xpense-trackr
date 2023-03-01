@@ -3,15 +3,15 @@
 </div>
 
 <div class="grand-total">
-  <h2 class="green">1000</h2>
+  <h2 [ngClass]="{green: netXpense > 0, red: netXpense < 0}">{{ netXpense }}</h2>
 </div>
 
 <div class="new-item">
   <div class="new-item-container">
-    <app-new-item [editedIndex]="editedIndex" style="padding: 20px;"></app-new-item>
+    <app-new-item style="padding: 20px;"></app-new-item>
   </div>
 </div>
 
 <hr style="margin-top: 0;">
 
-<app-items-list (editedXpense)="editedItem($event)"></app-items-list>
+<app-items-list></app-items-list>

@@ -15,7 +15,6 @@ export class ItemsListComponent implements OnInit{
   constructor(private xpenseSrv: XpenseService){
 
   }
-  isIncome: boolean = false;
   // xpenses$!: Observable<xpenseItem[]>;
   allItems$!: Observable<xpenseItem[]>;;
   xpenses$!: Observable<xpenseItem[]>;
@@ -33,8 +32,9 @@ export class ItemsListComponent implements OnInit{
   }
 
   editItem(item: xpenseItem){
-    this.editedXpense.emit(item)
-    this.xpenseSrv.setSelectedItem(item)
+    this.editedXpense.emit(item);
+    this.xpenseSrv.setSelectedItem(item);
+    this.xpenseSrv.setIsEdited();
   }
 
   deleteItem(index: number): void{
